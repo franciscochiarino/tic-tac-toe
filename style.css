@@ -1,9 +1,24 @@
+/* CSS Reset */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Layout */
+
 html {
     font-size: 100%;
+}
+
+#board {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    width: 500px;
+    height: 500px;
+}
+
+div {
+    border: 2px solid black
 }
