@@ -16,6 +16,7 @@ const basicCombinations = ['123', '456', '789', '147', '258', '369', '159', '753
 const allPossibleCombinations = [];
 
 // Other Variables
+const display = document.getElementById('script-display');  // Where messages are going to be displayed
 let clicksInsideBoard = 0;  // Click counter
 let movesPlayer1 = '';      // Player one moves concatination 
 let movesPlayer2 = '';      // Player two moves concatination
