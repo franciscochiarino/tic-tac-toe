@@ -6,6 +6,14 @@
     box-sizing: border-box;
 }
 
+/* Root */
+
+:root {
+    --primary-color: #1b3c6d;
+    --secondary-color: #fdfbfb;
+    --XO-color: #ee8c74;
+}
+
 /* Layout */
 
 html {
