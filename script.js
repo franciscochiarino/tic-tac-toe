@@ -47,7 +47,11 @@ const findCombinations = () => {
 // Check if someone wins:
 const findWinner = (playerMoves) => {
     allPossibleCombinations.forEach(n => {
-        playerMoves.includes(n) ? console.log('yes') : console.log('no');
+        if (playerMoves.includes(n) && clicksInsideBoard % 2 === 0) {
+            console.log('Player one wins')
+        } else if (playerMoves.includes(n)) {
+            console.log('Player two wins')
+        }
     })
 }
 
@@ -63,12 +67,20 @@ for (let i = 0; i < squares.length; i++) {
             squares[i].innerHTML = '<p>X</p>';
             // Concatinate the last character of the square's id (it's number):
             movesPlayer1 += squareId[squareId.length - 1];
+            // Check if player one won:
+            if (movesPlayer1 >= 3){
+                findWinner(movesPlayer1);
+            }
             console.log('Moves Player One: ', movesPlayer1);
         } else {
             squares[i].innerHTML = '<p>O</p>';
             // Concatinate the last character of the square's id (it's number):
             movesPlayer2 += squareId[squareId.length - 1];
-            console.log('Moves Player One: ', movesPlayer2);
+            // Check if player two won:
+            if (movesPlayer1 >= 3){
+                findWinner(movesPlayer2);
+            }
+            console.log('Moves Player Two: ', movesPlayer2);
         }
     });
 }
