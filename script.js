@@ -13,6 +13,7 @@ const square9 = document.getElementById('square-9');
 
 // Combinations
 const basicCombinations = ['123', '456', '789', '147', '258', '369', '159', '753'];
+const allPossibleCombinations = [];
 
 // Other Variables
 let clicksInsideBoard = 0;  // Click counter
@@ -25,8 +26,30 @@ const clickCounter = () => {
     clicksInsideBoard += 1;
 };
 
-//
+// Build all possible combinations array:
+const findCombinations = () => {
+    basicCombinations.forEach(n => {
+        let a = n[0];
+        let b = n[1];
+        let c = n[2];
+        
+        allPossibleCombinations.push(
+            a + b + c,
+            a + c + b,
+            c + b + a,
+            c + a + b,
+            b + a + c,
+            b + c + a
+        );
+    })
+}
 
+// Check if someone wins:
+const findWinner = (playerMoves) => {
+    allPossibleCombinations.forEach(n => {
+        playerMoves.includes(n) ? console.log('yes') : console.log('no');
+    })
+}
 
 // Event Listeners
 board.addEventListener('click', clickCounter);
@@ -50,4 +73,7 @@ for (let i = 0; i < squares.length; i++) {
     });
 }
 
-
+// To be done as soon as the website loads
+window.onload = function() {
+    findCombinations();
+};
