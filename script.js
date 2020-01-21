@@ -9,9 +9,19 @@ const square6 = document.getElementById('square-6');
 const square7 = document.getElementById('square-7');
 const square8 = document.getElementById('square-8');
 const square9 = document.getElementById('square-9'); 
+let clicksInsideBoard = 0;
 
 // Try click
 
+board.addEventListener('click', function() {
+    clicksInsideBoard += 1;
+    console.log(clicksInsideBoard);
+})
+
 square1.addEventListener('click', function() {
-    square1.style.backgroundColor = "blue";
+    if (clicksInsideBoard % 2 === 0) {
+        square1.innerHTML = '<p>X</p>';
+    } else {
+        square1.innerHTML = '<p>O</p>';
+    }
 })
