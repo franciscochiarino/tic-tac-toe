@@ -38,6 +38,9 @@ body {
     border: 2px solid #30496e
 }
 
+#script-display {
+    height: 3rem;
+}
 
 /* Typography */
 
