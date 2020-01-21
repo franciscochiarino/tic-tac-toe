@@ -61,6 +61,13 @@ h2 {
     font-style: 1.5rem;
 }
 
+h3 {
+    font-family: 'Montserrat', monospace;
+    color: #30496e;
+    text-transform: uppercase;
+    font-style: 1.2rem;
+}
+
 p {
     font-family: 'Montserrat', monospace;
     font-size: 7rem;
