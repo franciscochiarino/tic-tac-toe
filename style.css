@@ -12,6 +12,10 @@ html {
     font-size: 100%;
 }
 
+body {
+    background-color: #f3eadd;
+}
+
 .flex-container {
     display: flex;
     justify-content: center;
@@ -24,20 +28,30 @@ html {
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
     width: 500px;
     height: 500px;
-    gap: 2px;
+    gap: 3px;
 }
 
 .square {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black
+    border: 2px solid #30496e
 }
 
 
 /* Typography */
 
+h1 {
+    margin: 2rem 0 2.5rem;
+    text-align: center;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 3rem;
+    /* font-weight: 300; */
+    color: #30496e;
+}
+
 p {
     font-family: 'Montserrat', monospace;
     font-size: 7rem;
+    color: #ee8c74;
 }
