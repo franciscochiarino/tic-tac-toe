@@ -17,8 +17,19 @@ html {
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
     width: 500px;
     height: 500px;
+    gap: 2px;
 }
 
 div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid black
+}
+
+/* Typography */
+
+p {
+    font-family: 'Montserrat', monospace;
+    font-size: 7rem;
 }
