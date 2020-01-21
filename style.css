@@ -27,7 +27,7 @@ html {
     gap: 2px;
 }
 
-div {
+.square {
     display: flex;
     justify-content: center;
     align-items: center;
