@@ -1,4 +1,4 @@
-// Get all the board into variables:
+// Board Variables
 const board = document.getElementById('board');
 const squares = document.getElementsByClassName('square');
 const square1 = document.getElementById('square-1');
@@ -10,14 +10,22 @@ const square6 = document.getElementById('square-6');
 const square7 = document.getElementById('square-7');
 const square8 = document.getElementById('square-8');
 const square9 = document.getElementById('square-9'); 
-let clicksInsideBoard = 0;
-let movesPlayer1 = '';
-let movesPlayer2 = '';
+
+// Combinations
+const basicCombinations = ['123', '456', '789', '147', '258', '369', '159', '753'];
+
+// Other Variables
+let clicksInsideBoard = 0;  // Click counter
+let movesPlayer1 = '';      // Player one moves concatination 
+let movesPlayer2 = '';      // Player two moves concatination
+
 
 // Count the click inside the board, so we know who's who:
 const clickCounter = () => {
     clicksInsideBoard += 1;
 };
+
+//
 
 
 // Event Listeners
