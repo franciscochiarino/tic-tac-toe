@@ -18,7 +18,7 @@ body {
 
 .flex-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     margin: 3rem 0;
 }
@@ -29,6 +29,7 @@ body {
     width: 500px;
     height: 500px;
     gap: 3px;
+    margin-bottom: 2rem;
 }
 
 .square {
@@ -51,6 +52,13 @@ h1 {
     font-size: 3rem;
     /* font-weight: 300; */
     color: #30496e;
+}
+
+h2 {
+    font-family: 'Montserrat', monospace;
+    color: #30496e;
+    text-transform: uppercase;
+    font-style: 1.5rem;
 }
 
 p {

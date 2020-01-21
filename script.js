@@ -49,9 +49,9 @@ const findCombinations = () => {
 const findWinner = (playerMoves) => {
     allPossibleCombinations.forEach(n => {
         if (playerMoves.includes(n) && clicksInsideBoard % 2 === 0) {
-            console.log('Player one wins')
+            display.innerHTML = '<h2>Player One Wins!</h2>'
         } else if (playerMoves.includes(n)) {
-            console.log('Player two wins')
+            display.innerHTML = '<h2>Player Two Wins!</h2>'
         }
     })
 }
