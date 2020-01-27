@@ -41,7 +41,7 @@ const findWinner = (playerMoves) => {
     allPossibleCombinations.forEach(n => {
         if (playerMoves.includes(n) && clicksInsideBoard % 2 === 0) {
             display.innerHTML = '<h2>Player One Wins!</h2>'
-            startConfetti();
+            confetti.start();
         } else if (playerMoves.includes(n)) {
             display.innerHTML = '<h2>Player Two Wins!</h2>'
         }
