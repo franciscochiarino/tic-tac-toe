@@ -44,6 +44,7 @@ const findWinner = (playerMoves) => {
             confetti.start();
         } else if (playerMoves.includes(n)) {
             display.innerHTML = '<h2>Player Two Wins!</h2>'
+            confetti.start();
         }
     })
 }
