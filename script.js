@@ -34,7 +34,7 @@ const findCombinations = () => {
             b + c + a
         );
     })
-}
+} 
 
 // Check if someone wins:
 const findWinner = (playerMoves) => {
