@@ -1,10 +1,3 @@
-// Board Variables
-const boards = document.querySelectorAll('.row');
-const board = document.getElementById('board')
-
-board.addEventListener('click', (event) => {
-    console.log(event.target.parentNode.parentNode)
-})
 
 const squares = document.getElementsByClassName('square');
 // Combinations
@@ -17,6 +10,13 @@ const display = document.getElementById('script-display');  // Where messages ar
 let clicksInsideBoard = 0;  // Click counter
 let movesPlayer1 = '';      // Player one moves concatination 
 let movesPlayer2 = '';      // Player two moves concatination
+
+// Create virtual board
+const virtualBoard = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', '']
+]
 
 
 // Count the click inside the board, so we know who's who:
