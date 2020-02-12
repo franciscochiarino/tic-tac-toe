@@ -1,5 +1,5 @@
 
-const squares = document.getElementsByClassName('square');
+let squares = document.getElementsByClassName('square');
 // Combinations
 const basicCombinations = ['123', '456', '789', '147', '258', '369', '159', '753'];
 const allPossibleCombinations = [];
@@ -34,8 +34,16 @@ const findWinner = (array) => {
         (sq === 'O') ? counterP2 += 1 : false;
     }
 
-    (counterP1 === 3) ? console.log('X wins') : false;
-    (counterP2 === 3) ? console.log('O wins') : false;
+    if (counterP1 === 3) {
+        display.innerHTML = '<h3>Player One Wins!</h3>'
+        confetti.start()
+        squares = '';
+    }
+    if (counterP2 === 3) {
+        display.innerHTML = '<h3>Player Two Wins!</h3>'
+        confetti.start()
+        squares = '';
+    }
 }
 
 // Check all winning combinations
