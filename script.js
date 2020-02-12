@@ -50,23 +50,26 @@ const findWinner = (playerMoves) => {
 }
 
 // Event Listeners
-board.addEventListener('click', clickCounter);
+// board.addEventListener('click', clickCounter);
 
 // Draw & Locate clicks
 for (let i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', function() {
         let squareId = squares[i].id;
+        console.log(squares[i])
         
-        if (clicksInsideBoard % 2 === 0) {
+        if (clicksInsideBoard % 2 === 0 && squares[i].innerHTML === '') {
             squares[i].innerHTML = '<p>X</p>';
+            clickCounter()
             // Concatinate the last character of the square's id (it's number):
             movesPlayer1 += squareId[squareId.length - 1];
             // Check if player one won:
             if (movesPlayer1 >= 3){
                 findWinner(movesPlayer1);
             }
-        } else {
+        } else if (squares[i].innerHTML === '') {
             squares[i].innerHTML = '<p>O</p>';
+            clickCounter()
             // Concatinate the last character of the square's id (it's number):
             movesPlayer2 += squareId[squareId.length - 1];
             // Check if player two won:
