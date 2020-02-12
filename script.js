@@ -1,6 +1,11 @@
 // Board Variables
-const board = document.querySelectorAll('#board');
-console.log(board)
+const boards = document.querySelectorAll('.row');
+const board = document.getElementById('board')
+
+board.addEventListener('click', (event) => {
+    console.log(event.target.parentNode.parentNode)
+})
+
 const squares = document.getElementsByClassName('square');
 // Combinations
 const basicCombinations = ['123', '456', '789', '147', '258', '369', '159', '753'];
@@ -60,7 +65,7 @@ for (let i = 0; i < squares.length; i++) {
             squares[i].innerHTML = '<p>X</p>';
             clickCounter()
             // Concatinate the last character of the square's id (it's number):
-            movesPlayer1 += squareId[squareId.length - 1];
+            movesPlayer1 += squareId[squareId.length - 2];
             console.log(movesPlayer1)
             // Check if player one won:
             if (movesPlayer1.length >= 3){
