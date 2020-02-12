@@ -32,13 +32,15 @@ body {
     margin: 3rem 0;
 }
 
-#board {
+.row-one,
+.row-two,
+.row-three {
     display: grid;
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-    width: 500px;
-    height: 500px;
+    grid-template: 1fr / repeat(3, 1fr);
+    width: 600px;
+    height: 200px;
     gap: 3px;
-    margin-bottom: 2rem;
+    margin-bottom: 3px;
 }
 
 .square {
