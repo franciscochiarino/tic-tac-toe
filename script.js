@@ -60,13 +60,15 @@ const findWinner = (playerMoves) => {
 for (let i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', function() {
         let squareId = squares[i].id;
+        let squareRow = squareId[squareId.length - 2]
+        let squareCol = squareId[squareId.length - 1]
         
         if (clicksInsideBoard % 2 === 0 && squares[i].innerHTML === '') {
             squares[i].innerHTML = '<p>X</p>';
             clickCounter()
             // Concatinate the last character of the square's id (it's number):
             movesPlayer1 += squareId[squareId.length - 2];
-            console.log(movesPlayer1)
+            
             // Check if player one won:
             if (movesPlayer1.length >= 3){
                 findWinner(movesPlayer1);
