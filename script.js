@@ -8,8 +8,6 @@ const allPossibleCombinations = [];
 // Other Variables
 const display = document.getElementById('script-display');  // Where messages are going to be displayed
 let clicksInsideBoard = 0;  // Click counter
-let movesPlayer1 = '';      // Player one moves concatination 
-let movesPlayer2 = '';      // Player two moves concatination
 
 // Create virtual board
 const virtualBoard = [
@@ -24,22 +22,29 @@ const clickCounter = () => {
     clicksInsideBoard += 1;
 };
 
-// Build all possible combinations array:
+// Check all winning combinations
 const findCombinations = () => {
-    basicCombinations.forEach(n => {
-        let a = n[0];
-        let b = n[1];
-        let c = n[2];
-        
-        allPossibleCombinations.push(
-            a + b + c,
-            a + c + b,
-            c + b + a,
-            c + a + b,
-            b + a + c,
-            b + c + a
-        );
+   
+    // Find combinations horizontally
+    virtualBoard.forEach(row => {
+        let counterP1 = 0;
+        let counterP2 = 0;
+
+        row.forEach(sq => {
+            (sq === 'X') ? counterP1 += 1 : false;
+            (sq === 'O') ? counterP2 += 1 : false;
+        })
+
+        if (counterP1 === 3) {
+            console.log('X wins')
+        } else if (counterP2 === 3) {
+            console.log('O wins')
+        }        
     })
+
+    // Find combinations verically
+    
+
 } 
 
 // Check if someone wins:
@@ -67,26 +72,17 @@ for (let i = 0; i < squares.length; i++) {
             squares[i].innerHTML = '<p>X</p>';
             clickCounter()
             // Concatinate the last character of the square's id (it's number):
-            movesPlayer1 += squareId[squareId.length - 2];
-            
+            virtualBoard[squareRow][squareCol] = 'X';
             // Check if player one won:
-            if (movesPlayer1.length >= 3){
-                findWinner(movesPlayer1);
-            }
+            findCombinations()
         } else if (squares[i].innerHTML === '') {
             squares[i].innerHTML = '<p>O</p>';
             clickCounter()
             // Concatinate the last character of the square's id (it's number):
-            movesPlayer2 += squareId[squareId.length - 1];
+            virtualBoard[squareRow][squareCol] = 'O';
             // Check if player two won:
-            if (movesPlayer1 >= 3){
-                findWinner(movesPlayer2);
-            }
+            findCombinations()
         }
     });
 }
 
-// To be done as soon as the website loads
-window.onload = function() {
-    findCombinations();
-};

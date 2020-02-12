@@ -35,8 +35,8 @@ body {
 #board {
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     gap: 3px;
     margin-bottom: 1.5rem;
 }
