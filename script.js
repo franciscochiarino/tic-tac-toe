@@ -43,8 +43,27 @@ const findCombinations = () => {
     })
 
     // Find combinations verically
-    
+    for (let i = 0; i < virtualBoard.length; i++) {
+        let counterP1 = 0;
+        let counterP2 = 0;
 
+        let col = [];
+
+        for (let j = 0; j < virtualBoard.length; j++) {
+            col.push(virtualBoard[j][i])
+        }
+
+        col.forEach(sq => {
+            (sq === 'X') ? counterP1 += 1 : false;
+            (sq === 'O') ? counterP2 += 1 : false;
+        })
+        
+        if (counterP1 === 3) {
+            console.log('X wins')
+        } else if (counterP2 === 3) {
+            console.log('O wins')
+        }  
+    }
 } 
 
 // Check if someone wins:
