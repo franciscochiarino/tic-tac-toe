@@ -64,6 +64,11 @@ const findCombinations = () => {
             console.log('O wins')
         }  
     }
+
+    // Find combinations diagonally
+    let diagonal1 = [virtualBoard[0][0], virtualBoard[1][1], virtualBoard[2][2]];
+    let diagonal2 = [virtualBoard[2][0], virtualBoard[1][1], virtualBoard[0][2]];
+    
 } 
 
 // Check if someone wins:
