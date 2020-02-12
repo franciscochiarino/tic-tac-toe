@@ -22,68 +22,49 @@ const clickCounter = () => {
     clicksInsideBoard += 1;
 };
 
+// Check if someone wins:
+const findWinner = (array) => {
+    let counterP1 = 0;
+    let counterP2 = 0;
+
+    // Using 'for' because forEach didn't work here
+    for (let i = 0; i < array.length; i++) {
+        let sq = array[i];
+        (sq === 'X') ? counterP1 += 1 : false;
+        (sq === 'O') ? counterP2 += 1 : false;
+    }
+
+    (counterP1 === 3) ? console.log('X wins') : false;
+    (counterP2 === 3) ? console.log('O wins') : false;
+}
+
 // Check all winning combinations
 const findCombinations = () => {
    
     // Find combinations horizontally
-    virtualBoard.forEach(row => {
-        let counterP1 = 0;
-        let counterP2 = 0;
-
-        row.forEach(sq => {
-            (sq === 'X') ? counterP1 += 1 : false;
-            (sq === 'O') ? counterP2 += 1 : false;
-        })
-
-        if (counterP1 === 3) {
-            console.log('X wins')
-        } else if (counterP2 === 3) {
-            console.log('O wins')
-        }        
+    virtualBoard.forEach(row => {     
+        findWinner(row);
     })
 
     // Find combinations verically
     for (let i = 0; i < virtualBoard.length; i++) {
-        let counterP1 = 0;
-        let counterP2 = 0;
-
         let col = [];
 
         for (let j = 0; j < virtualBoard.length; j++) {
             col.push(virtualBoard[j][i])
         }
 
-        col.forEach(sq => {
-            (sq === 'X') ? counterP1 += 1 : false;
-            (sq === 'O') ? counterP2 += 1 : false;
-        })
-        
-        if (counterP1 === 3) {
-            console.log('X wins')
-        } else if (counterP2 === 3) {
-            console.log('O wins')
-        }  
+        findWinner(col);
     }
 
     // Find combinations diagonally
     let diagonal1 = [virtualBoard[0][0], virtualBoard[1][1], virtualBoard[2][2]];
     let diagonal2 = [virtualBoard[2][0], virtualBoard[1][1], virtualBoard[0][2]];
+
+    findWinner(diagonal1);
+    findWinner(diagonal2);
     
 } 
-
-// Check if someone wins:
-const findWinner = (playerMoves) => {
-    allPossibleCombinations.forEach(n => {
-        if (playerMoves.includes(n) && clicksInsideBoard % 2 === 0) {
-            display.innerHTML = '<h2>Player One Wins!</h2>'
-            return confetti.start();
-        } else if (playerMoves.includes(n)) {
-            display.innerHTML = '<h2>Player Two Wins!</h2>'
-            return confetti.start();
-        }
-    })
-}
-
 
 // Draw & Locate clicks
 for (let i = 0; i < squares.length; i++) {
